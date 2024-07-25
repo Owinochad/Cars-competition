@@ -33,9 +33,22 @@ Welcome to the Car Competition project! This document outlines the rules of enga
 - Once the feature is merged, update the "In-Progress Features" section to reflect that the feature is completed.
 
 ## Pending Features
-| Feature                | 
-|------------------------|
-| add-user-authentication|
+
+| Features                       |
+|--------------------------------|
+| Homepage                       |
+| Competitions                   |
+| How It Works                   |
+| Past Winners (optional)        |
+| About Us                       |
+| Contact Us                     |
+| User Account                   |
+| Blog                           |
+| FAQ                            |
+| Secure Payment System          |
+| Responsive Design              |
+| Legal and Compliance           |
+
 
 ## In-Progress Features
 | Feature                | Contributor       | Start Date  | Status    |
