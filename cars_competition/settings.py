@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'car_competition.urls'
+ROOT_URLCONF = 'cars_competition.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'car_competition.wsgi.application'
+WSGI_APPLICATION = 'cars_competition.wsgi.application'
 
 
 # Database
