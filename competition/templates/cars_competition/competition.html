@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ competition.car_name }}</title>
+</head>
+<body>
+    <h1>{{ competition.car_name }}</h1>
+    <img src="{{ competition.image.url }}" alt="{{ competition.car_model }}" width="400">
+    <p><strong>Car Model:</strong> {{ competition.car_model }}</p>
+    <p><strong>Description:</strong> {{ competition.description }}</p>
+    <p><strong>Specifications:</strong> {{ competition.specifications }}</p>
+    <p><strong>Ticket Price:</strong> ${{ competition.ticket_price }}</p>
+    <p><strong>Competition End Date:</strong> {{ competition.end_date }}</p>
+    <p><strong>Total Number of Tickets:</strong> {{ competition.total_tickets }}</p>
+    <p><strong>Total Number of Entries Sold:</strong> {{ competition.entries_sold }}</p>
+    <p><strong>Maximum Entries Per Person:</strong> {{ competition.max_entries_per_person }}</p>
+    <a href="{% url 'competitions' %}">Back to Competitions</a>
+</body>
+</html>
+

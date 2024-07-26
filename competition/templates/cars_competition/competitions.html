@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition</title>
+</head>
+<body>
+    <h1>here is a list for all available competitions</h1>
+    <h1>Car Competitions</h1>
+    {% if competitions %}
+    <ul>
+        {% for competition in competitions %}
+            <li>
+                <a href="{% url 'competition' competition.id %}">{{ competition.car_model }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>no competitions as of yet</p>
+    {% endif %}
+</body>
+</html>
