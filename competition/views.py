@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import CreatUserForm, LoginForm
 
 from django.contrib.auth.decorators import login_required
+from .models import *
 
 
 # Authentication models and functions
@@ -13,6 +14,7 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def index(request):
+
     return render(request, 'cars_competition/index.html')
 
 
@@ -76,3 +78,11 @@ def register_user(request):
     }
 
     return render(request, 'cars_competition/register.html', context=context)
+
+def competitions(request):
+    competitions = Competition.objects.all()
+    return render(request, 'cars_competition/competitions.html', {'competitions': competitions})
+
+def competition(request, competition_id):
+    competition = get_object_or_404(Competition, id=competition_id)
+    return render(request, 'cars_competition/competition.html', {'competition': competition})
