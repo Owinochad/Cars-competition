@@ -13,3 +13,4 @@ class Cart():
 
         # make sure cart is available in all pages of the sight
         self.cart = cart
+        
