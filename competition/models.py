@@ -18,6 +18,7 @@ class Competition(models.Model):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     max_entries_per_user = models.PositiveIntegerField()
+    tickets_sold = models.IntegerField(default=0)
 
     def total_entries_sold(self):
         return self.entries.count()
@@ -72,3 +73,11 @@ class FAQ(models.Model):
     def __str__(self):
         return self.question
 
+class BasketItem(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    competition = models.ForeignKey(Competition, on_delete=models.CASCADE)
+    ticket_count = models.IntegerField()
+    added_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.ticket_count} tickets for {self.competition.car_model}"
