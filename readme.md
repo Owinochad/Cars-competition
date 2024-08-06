@@ -53,7 +53,7 @@ Welcome to the Car Competition project! This document outlines the rules of enga
 ## In-Progress Features
 | Feature                | Contributor       | Start Date  | Status    |
 |------------------------|-------------------|-------------|-----------|
-| add-user-authentication| @github_username  | YYYY-MM-DD  | In-Progress|
+| Competitions           | @sammyrhymes      | 2024-07-25  | In-Progress|
 
 ## Completed Features
 | Feature                | Contributor       | Completed Date  |
