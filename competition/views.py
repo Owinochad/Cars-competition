@@ -83,6 +83,29 @@ def competitions(request):
     competitions = Competition.objects.all()
     return render(request, 'cars_competition/competitions.html', {'competitions': competitions})
 
-def competition(request, competition_id):
+def competition_details(request, competition_id):
     competition = get_object_or_404(Competition, id=competition_id)
-    return render(request, 'cars_competition/competition.html', {'competition': competition})
+    return render(request, 'cars_competition/competition_details.html', {'competition': competition})
+
+@login_required
+def add_to_basket(request, id):
+    competition = get_object_or_404(Competition, id=id)
+    if request.method == 'POST':
+        ticket_count = int(request.POST['ticket_count'])
+        if ticket_count > 0 and ticket_count <= (competition.total_tickets - competition.tickets_sold):
+            basket_item, created = BasketItem.objects.get_or_create(
+                user=request.user,
+                competition=competition,
+                defaults={'ticket_count': ticket_count}
+            )
+            if not created:
+                basket_item.ticket_count += ticket_count
+                basket_item.save()
+            return redirect('view_basket')
+    return redirect('competition_detail', id=competition.id)
+
+@login_required
+def view_basket(request):
+    basket_items = BasketItem.objects.filter(user=request.user)
+    total_cost = sum(item.competition.ticket_price * item.ticket_count for item in basket_items)
+    return render(request, 'cars_competition/view_basket.html', {'basket_items': basket_items, 'total_cost': total_cost})

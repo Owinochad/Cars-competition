@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ competition.car_name }}</title>
+</head>
+<body>
+    <h1>{{ competition.car_model }}</h1>
+    <img src="{{ competition.car_image.url }}" alt="{{ competition.car_model }}">
+    <p>{{ competition.description }}</p>
+    <p>Price per ticket: {{ competition.ticket_price }}</p>
+    <p>Total tickets: {{ competition.total_tickets }}</p>
+    <p>Tickets sold: {{ competition.tickets_sold }}</p>
+    <p>End date: {{ competition.end_date }}</p>
+    
+    <form method="post" action="{% url 'add_to_basket' competition.id %}">
+        {% csrf_token %}
+        <label for="ticket_count">Number of tickets:</label>
+        <input type="number" name="ticket_count" id="ticket_count" min="1" max="{{ competition.max_entries_per_person }}">
+        <button type="submit">Add to Basket</button>
+    </form>
+    
+    <a href="{% url 'competitions' %}">Back to Competitions</a>
+</body>
+</html>
+
